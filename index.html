@@ -5,7 +5,7 @@
   <title>Pusher Test</title>
   <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
   <script type="text/javascript" src="js/jquery.cookie.js"></script>
-  <script type="text/javascript" src="js/pusher.min.js"></script>  
+  <script type="text/javascript" src="js/pusher.min.js"></script>
   <script type="text/javascript" src="js/main.js"></script>
 
   <style type="text/css">
@@ -17,14 +17,24 @@
 
 
   <script type="text/javascript">
+    // Enable pusher logging - don't include this in production
+/*
+    Pusher.log = function(message) {
+      console.log(message);
+    };
 
+    var pusher = new Pusher('95c1ee6cc09dfd0efb14');
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('my_event', function(data) {
+      alert(data.message);
+    });
+*/
     jQuery(document).ready(function() {
       PT1.app.main();
     });
-
   </script>
 </head>
 <body>
-  Hi
+  Hi there
 </body>
 </html>
