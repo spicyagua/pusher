@@ -9,6 +9,8 @@
   echo "c: " . (time()-$start) . "<br>";
   $pusher->trigger("test_channel", "my_event", array( "message" => "hello world"));
   echo "d: " . (time()-$start) . "<br>";
+  
+  error_log("Hello world");
 
 
 ?>
