@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Slim Test</title>
+  <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+
+  <script type="text/javascript">
+
+    jQuery(document).ready(function() {
+
+      //pinched this off the web.  Nice.
+      jQuery.extend({
+          postJSON: function(params) {
+              return jQuery.ajax(jQuery.extend(params, {
+                  type: "POST",
+                  data: JSON.stringify(params.data),
+                  dataType: "json",
+                  contentType: "application/json",
+                  processData: false
+              }));
+          }
+      });
+
+      console.log("Hello world");
+
+      jQuery.postJSON({
+        url:"/slim/something",
+        data:{"foo": "fooval", "moo": "mooval"},
+        success: function() {
+          console.log("Success");
+        },
+        done: function(data) {
+          console.log("Done invoked");
+        }
+      });
+
+    });
+  </script>
+</head>
+<body>
+</body>
+</html>
