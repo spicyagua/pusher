@@ -9,6 +9,8 @@
 
     jQuery(document).ready(function() {
 
+      console.log("Hi there");
+
       //pinched this off the web.  Nice.
       jQuery.extend({
           postJSON: function(params) {
@@ -25,7 +27,7 @@
       console.log("Hello world");
 
       jQuery.postJSON({
-        url:"/slim/something",
+        url:"/pusher/api/v1/something",
         data:{"foo": "fooval", "moo": "mooval"},
         success: function() {
           console.log("Success");

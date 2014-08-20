@@ -11,7 +11,9 @@ PT1.app = (function() {
     Pusher.log = function(message) {
       console.log("(pusher message) " + message);
     };
-    
+
+    //To see if there is anyone on a channel, use "channel.members.count"
+
     Pusher.channel_auth_endpoint = "presenceAuth.php";
 
     //Basic subscription to a public event
@@ -21,29 +23,29 @@ PT1.app = (function() {
       console.log(data);
       console.log("Got one: " + data.message);
     });
-    
+
     var channel2 = pusher.subscribe('presence-channel');
     channel2.bind('pusher:subscription_succeeded', function() {
-    	console.log("subscription succeeded!");
-    });  
-    
+      console.log("subscription succeeded!");
+    });
+
     channel2 .bind('pusher:subscription_error', function(status) {
-    	console.log("subscription_error.  Status: " + status);
+      console.log("subscription_error.  Status: " + status);
       if(status == 408 || status == 503){
         // retry?
       }
-    }); 
-    
+    });
+
     channel2 .bind('pusher:member_added', function(member) {
-    	console.log("Member added: " + member.id + ", other: " + member);
-    });   
-    
+      console.log("Member added: " + member.id + ", other: " + member);
+    });
+
     channel2 .bind('pusher:member_removed', function(member) {
-    	console.log("Member Removed: " + member.id + ", other: " + member);
-    });         
-    
-        
-    
+      console.log("Member Removed: " + member.id + ", other: " + member);
+    });
+
+
+
 
 /*
     var pusher = new Pusher("95c1ee6cc09dfd0efb14");

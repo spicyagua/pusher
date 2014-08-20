@@ -22,6 +22,8 @@ class AuthMiddleware extends \Slim\Middleware
     {
       if(true) {
         $this->next->call();
+
+        error_log("Resource accessed: " . $this->app->request->getResourceUri());
         return;
       }
         //The Slim application
@@ -64,6 +66,17 @@ $app = new \Slim\Slim(array(
   ));
 
 $app->add(new AuthMiddleware());
+
+$app->get(
+    "/a",
+    function () use ($app) {
+
+        error_log("get root");
+
+        echo "You are getting root";
+
+    }
+);
 
 // GET route
 $app->get(

@@ -14,4 +14,7 @@ $pusher = new Pusher($key , $secret , $app_id);
 $user_id = $_SESSION["pt_userID"];
 $presence_data = array('name' => $_SESSION["pt_userName"]);
 echo $pusher->presence_auth($_POST['channel_name'], $_POST['socket_id'], $user_id, $presence_data);
+
+//TODO: header("", true, 403); echo "Forbidden"; if not authenticated
+
 ?>
